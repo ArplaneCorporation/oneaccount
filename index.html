@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arplane One Account</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container mt-5">
+    <h1 id="headerTitle">Arplane One Account</h1>
+
+    <div class="form-group mb-4">
+      <label for="languageSelect" id="languageLabel">Select Language</label>
+      <select class="form-control" id="languageSelect">
+        <option value="en">English</option>
+        <option value="th">ภาษาไทย</option>
+      </select>
+    </div>
+
+    <!-- ฟอร์มสำหรับล็อกอิน -->
+    <div id="loginContainer">
+      <h2 id="loginTitle">Login</h2>
+      <form id="loginForm">
+        <div class="mb-3">
+          <label for="usernameLogin" id="usernameLoginLabel" class="form-label">Username</label>
+          <input type="text" class="form-control" id="usernameLogin" placeholder="Enter username" required>
+        </div>
+        <div class="mb-3">
+          <label for="passwordLogin" id="passwordLoginLabel" class="form-label">Password</label>
+          <input type="password" class="form-control" id="passwordLogin" placeholder="Enter password" required>
+        </div>
+        <button type="submit" class="btn btn-primary" id="loginButton">Login</button>
+        <p class="mt-3">
+          <span id="noAccountMessage">ยังไม่มีบัญชีหรือ?</span>
+          <a href="#" id="toggleToRegister">คลิกที่นี่เพื่อสมัครสมาชิก</a>
+        </p>
+      </form>
+    </div>
+
+    <!-- ฟอร์มสำหรับลงทะเบียน -->
+    <div id="registerContainer" style="display: none;">
+      <h2 id="registerTitle">Register</h2>
+      <form id="registerForm">
+        <div class="mb-3">
+          <label for="nameRegister" id="nameRegisterLabel" class="form-label">ชื่อ</label>
+          <input type="text" class="form-control" id="nameRegister" placeholder="กรอกชื่อ" required>
+        </div>
+        <div class="mb-3">
+          <label for="usernameRegister" id="usernameRegisterLabel" class="form-label">Username</label>
+          <input type="text" class="form-control" id="usernameRegister" placeholder="Enter username" required>
+        </div>
+        <div class="mb-3">
+          <label for="passwordRegister" id="passwordRegisterLabel" class="form-label">Password</label>
+          <input type="password" class="form-control" id="passwordRegister" placeholder="Enter password" required>
+        </div>
+        <button type="submit" class="btn btn-secondary" id="registerButton">Register</button>
+        <p class="mt-3">
+          <span id="hasAccountMessage">มีบัญชีแล้ว?</span>
+          <a href="#" id="toggleToLogin">คลิกที่นี่เพื่อเข้าสู่ระบบ</a>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    // ฟังก์ชันสำหรับเปลี่ยนภาษา
+    const languageSelect = document.getElementById('languageSelect');
+    languageSelect.addEventListener('change', function() {
+      const selectedLanguage = languageSelect.value;
+
+      if (selectedLanguage === 'en') {
+        // เปลี่ยนข้อความเป็นภาษาอังกฤษ
+        document.getElementById('headerTitle').innerText = 'Arplane';
+        document.getElementById('loginTitle').innerText = 'Login';
+        document.getElementById('usernameLoginLabel').innerText = 'Username';
+        document.getElementById('passwordLoginLabel').innerText = 'Password';
+        document.getElementById('loginButton').innerText = 'Login';
+        document.getElementById('noAccountMessage').innerText = 'Don\'t have an account?';
+        document.getElementById('toggleToRegister').innerText = 'Click here to register';
+        document.getElementById('registerTitle').innerText = 'Register';
+        document.getElementById('nameRegisterLabel').innerText = 'Name';
+        document.getElementById('usernameRegisterLabel').innerText = 'Username';
+        document.getElementById('passwordRegisterLabel').innerText = 'Password';
+        document.getElementById('registerButton').innerText = 'Register';
+        document.getElementById('hasAccountMessage').innerText = 'Already have an account?';
+        document.getElementById('toggleToLogin').innerText = 'Click here to login';
+      } else {
+        // เปลี่ยนข้อความเป็นภาษาไทย
+        document.getElementById('headerTitle').innerText = 'Arplane One Account';
+        document.getElementById('loginTitle').innerText = 'เข้าสู่ระบบ';
+        document.getElementById('usernameLoginLabel').innerText = 'ชื่อผู้ใช้';
+        document.getElementById('passwordLoginLabel').innerText = 'รหัสผ่าน';
+        document.getElementById('loginButton').innerText = 'เข้าสู่ระบบ';
+        document.getElementById('noAccountMessage').innerText = 'ยังไม่มีบัญชีหรือ?';
+        document.getElementById('toggleToRegister').innerText = 'คลิกที่นี่เพื่อสมัครสมาชิก';
+        document.getElementById('registerTitle').innerText = 'สมัครสมาชิก';
+        document.getElementById('nameRegisterLabel').innerText = 'ชื่อ';
+        document.getElementById('usernameRegisterLabel').innerText = 'ชื่อผู้ใช้';
+        document.getElementById('passwordRegisterLabel').innerText = 'รหัสผ่าน';
+        document.getElementById('registerButton').innerText = 'สมัครสมาชิก';
+        document.getElementById('hasAccountMessage').innerText = 'มีบัญชีแล้ว?';
+        document.getElementById('toggleToLogin').innerText = 'คลิกที่นี่เพื่อเข้าสู่ระบบ';
+      }
+    });
+  </script>
+</body>
+</html>
